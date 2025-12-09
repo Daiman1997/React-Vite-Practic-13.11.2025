@@ -6,12 +6,24 @@ import TubsSection from "./components/TubsSection.jsx";
 import AboutMeSection from "./components/AboutMeSection.jsx";
 import States from "./components/States.jsx";
 import Effect from "./components/Effect.jsx";
+import SaveReference from "./components/SaveReference.jsx";
+import PageContext from "./components/Context/PageContext.jsx";
 import { useState, useEffect, } from "react";
+import { ThemeContext } from "./components/Context/ThemeContext.jsx";
+
 
 export default function App() {
+  const [theme, setTheme] = useState(() => {
+    return localStorage.getItem('theme') || 'light'
+  });
+
   const [active, setActive] = useState(() => {
     return localStorage.getItem('activeTab') || 'main'
   });
+
+  useEffect(() => {
+    localStorage.setItem("theme", theme);
+  }, [theme]);
 
   // Читаем значение таба из URL
   useEffect(() => {
@@ -34,9 +46,9 @@ export default function App() {
   }, [active]); 
 
   return (
-    <>
+    <ThemeContext.Provider  className={theme} value={{ theme, setTheme }}>
       <Header />
-      <main>
+      <main className={theme}>
         <IntroSection />
         <TubsSection active={active} onChange={setActive} />
 
@@ -49,7 +61,9 @@ export default function App() {
         {active === "aboutMe" && <AboutMeSection />}
         {active === "states" && <States />}
         {active === "effect" && <Effect />}
+        {active === "saveReference" && <SaveReference />}
+        {active === "context" && <PageContext />}
       </main>
-    </>
+    </ThemeContext.Provider>
   );
 }
