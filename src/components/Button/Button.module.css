@@ -5,7 +5,7 @@
     cursor: pointer;
     transition: all 0.3s;
     font-weight: bold;
-    margin-right: 1rem;
+    margin: 0.4rem;
 }
 
 .button:hover {

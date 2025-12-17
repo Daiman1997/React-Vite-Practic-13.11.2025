@@ -1,9 +1,8 @@
-import Logo from "/rocet.svg";
+import Logo from "./rocet.svg";
 import { useState, useEffect } from "react";
 import { styled } from "styled-components";
 
 const HeaderContainer = styled.header`
-  background-color: #f8f9fa;
   padding: 20px;
   text-align: center;
 `;
@@ -19,7 +18,7 @@ export default function Header() {
   return (
     <HeaderContainer>
       <h1>Welcome to My App</h1>
-      <img src={Logo} alt="" width="40px" />
+      <img src={Logo} alt="Logo" width="50" />
       <span>Time on the site now : {now.toLocaleTimeString()}</span>
     </HeaderContainer>
   );

@@ -8,6 +8,8 @@ import States from "./components/States.jsx";
 import Effect from "./components/Effect.jsx";
 import SaveReference from "./components/SaveReference.jsx";
 import PageContext from "./components/Context/PageContext.jsx";
+import Reducer from "./components/Reducer.jsx";
+import CartMain from "./components/Shopping_Cart/CartMain.jsx";
 import { useState, useEffect, } from "react";
 import { ThemeContext } from "./components/Context/ThemeContext.jsx";
 
@@ -22,6 +24,7 @@ export default function App() {
   });
 
   useEffect(() => {
+    document.body.className = theme;
     localStorage.setItem("theme", theme);
   }, [theme]);
 
@@ -46,9 +49,9 @@ export default function App() {
   }, [active]); 
 
   return (
-    <ThemeContext.Provider  className={theme} value={{ theme, setTheme }}>
+    <ThemeContext.Provider value={{ theme, setTheme }}>
       <Header />
-      <main className={theme}>
+      <main>
         <IntroSection />
         <TubsSection active={active} onChange={setActive} />
 
@@ -63,6 +66,8 @@ export default function App() {
         {active === "effect" && <Effect />}
         {active === "saveReference" && <SaveReference />}
         {active === "context" && <PageContext />}
+        {active === 'reducer' && <Reducer />}
+        {active === 'cart' && <CartMain />}
       </main>
     </ThemeContext.Provider>
   );
