@@ -1,5 +1,3 @@
-export const initialState = [];
-
 export default function cartReducer(state, action) {
   switch (action.type) {
     case "ADD_ITEM": {
@@ -29,6 +27,8 @@ export default function cartReducer(state, action) {
     case "CLEAR_CART": {
       return [];
     }
+
+    
 
     default:
       return state;

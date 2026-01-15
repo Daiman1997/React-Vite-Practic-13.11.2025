@@ -8,7 +8,7 @@ import States from "./components/States.jsx";
 import Effect from "./components/Effect.jsx";
 import SaveReference from "./components/SaveReference.jsx";
 import PageContext from "./components/Context/PageContext.jsx";
-import Reducer from "./components/Reducer.jsx";
+import ReducerCount from "./components/ReducerCount.jsx";
 import CartMain from "./components/Shopping_Cart/CartMain.jsx";
 import { useState, useEffect, } from "react";
 import { ThemeContext } from "./components/Context/ThemeContext.jsx";
@@ -66,7 +66,7 @@ export default function App() {
         {active === "effect" && <Effect />}
         {active === "saveReference" && <SaveReference />}
         {active === "context" && <PageContext />}
-        {active === 'reducer' && <Reducer />}
+        {active === 'reducerCount' && <ReducerCount />}
         {active === 'cart' && <CartMain />}
       </main>
     </ThemeContext.Provider>

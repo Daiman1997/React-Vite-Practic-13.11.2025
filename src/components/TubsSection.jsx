@@ -9,7 +9,7 @@ export default function TubsSection( {active, onChange} ) {
             <Button isActive={active === 'effect'} buttonClick={() => onChange('effect')}>useEffect</Button>
             <Button isActive={active === 'saveReference'} buttonClick={() => onChange('saveReference')}>useRef</Button>
             <Button isActive={active === 'context'} buttonClick={() => onChange('context')}>Context</Button>
-            <Button isActive={active === 'reducer'} buttonClick={() => onChange('reducer')}>useReducer</Button>
+            <Button isActive={active === 'reducerCount'} buttonClick={() => onChange('reducerCount')}>useReducer</Button>
             <Button isActive={active === 'cart'} buttonClick={() => onChange('cart')}>Корзина через useReducer + Context</Button>
         </section>
     )

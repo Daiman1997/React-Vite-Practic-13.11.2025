@@ -1,11 +1,17 @@
-import { useContext } from "react";
-import { CartContext } from "./CartContext";
+import { useContext, useMemo } from "react";
+import { GlobalContext } from "./GlobalContext";
 import Button from "../Button/Button";
 
 export default function Cart() {
-  const { cart, dispatch } = useContext(CartContext);
+  const { state, dispatch } = useContext(GlobalContext); 
+  const cart = state.cart;
+  const total = useMemo(() => {
+    return cart.reduce((sum, item) => sum + (item.price * item.qty), 0)
+  }, [cart]);
 
-  const total = cart.reduce((sum, item) => sum + (item.price * item.qty), 0);
+  if (!state.auth.isAuth) {
+    return <p>Сначала войдите</p>;
+  }
 
   return (
     <section>
